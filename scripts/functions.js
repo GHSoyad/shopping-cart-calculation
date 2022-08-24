@@ -1,3 +1,4 @@
+// Function for product counter
 function productAmount(isIcrement, inputField) {
     const caseNumber = document.getElementById(inputField);
     const caseNumberValue = caseNumber.value;
@@ -17,29 +18,30 @@ function productAmount(isIcrement, inputField) {
     return caseUpdatedNumber;
 }
 
+// Function to calculate product price
 function calculateProductPrice(elementId, productPrice, productUpdatedNumber) {
     const productPriceField = document.getElementById(elementId);
     const productTotalPrice = productUpdatedNumber * productPrice;
     productPriceField.innerText = productTotalPrice;
 }
 
-function getProductTotal(elementId) {
-    const productTotalField = document.getElementById(elementId);
-    const productTotalValue = productTotalField.innerText;
-    const productTotal = parseFloat(productTotalValue);
-    return productTotal;
-}
-
+// Function to set product total price
 function setAmount(elementId, value) {
     const amountField = document.getElementById(elementId);
     amountField.innerText = value;
 }
 
+// Function to calculate product total price
 function calculateProductTotal() {
-    const phoneTotal = getProductTotal('phone-total');
-    const caseTotal = getProductTotal('case-total');
 
-    const subTotal = phoneTotal + caseTotal;
+    const itemTotal = document.querySelectorAll('.item-total')
+    let subTotal = 0;
+
+    for (item of itemTotal) {
+        subTotal = subTotal + parseInt(item.innerText);
+        console.log(subTotal);
+    }
+
     setAmount('sub-total', subTotal);
 
     const taxAmount = (subTotal * 0.12).toFixed(2);

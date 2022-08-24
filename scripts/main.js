@@ -23,7 +23,7 @@ document.getElementById('phone-minus').addEventListener('click', function () {
 
     calculateProductTotal();
 
-    if (phoneUpdatedNumber == 0) {
+    if (phoneUpdatedNumber <= 0) {
         this.setAttribute('disabled', true);
     }
 })
@@ -50,7 +50,21 @@ document.getElementById('case-minus').addEventListener('click', function () {
 
     calculateProductTotal();
 
-    if (caseUpdatedNumber == 0) {
+    if (caseUpdatedNumber <= 0) {
         this.setAttribute('disabled', true);
+    }
+})
+
+// Remove products
+document.getElementById('cart').addEventListener('click', function (event) {
+
+    let element = event.target;
+
+    if (element.classList.contains('remove-item')) {
+        let removeItem = element.parentNode.parentNode.parentNode;
+        removeItem.remove();
+        console.log(element.parentNode.parentNode.parentNode);
+
+        calculateProductTotal();
     }
 })

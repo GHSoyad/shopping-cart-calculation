@@ -16,3 +16,9 @@ function productAmount(isIcrement, inputField) {
 
     return caseUpdatedNumber;
 }
+
+function calculateProductPrice(elementId, productPrice, productUpdatedNumber) {
+    const productPriceField = document.getElementById(elementId);
+    const productTotalPrice = productUpdatedNumber * productPrice;
+    productPriceField.innerText = productTotalPrice;
+}

@@ -8,6 +8,8 @@ document.getElementById('phone-plus').addEventListener('click', function () {
 
     calculateProductPrice('phone-total', phonePrice, phoneUpdatedNumber);
 
+    calculateProductTotal();
+
     const btnMinus = document.getElementById('phone-minus');
     btnMinus.removeAttribute('disabled');
 })
@@ -18,6 +20,8 @@ document.getElementById('phone-minus').addEventListener('click', function () {
 
 
     calculateProductPrice('phone-total', phonePrice, phoneUpdatedNumber);
+
+    calculateProductTotal();
 
     if (phoneUpdatedNumber == 0) {
         this.setAttribute('disabled', true);
@@ -32,6 +36,8 @@ document.getElementById('case-plus').addEventListener('click', function () {
 
     calculateProductPrice('case-total', casePrice, caseUpdatedNumber);
 
+    calculateProductTotal();
+
     const btnMinus = document.getElementById('case-minus');
     btnMinus.removeAttribute('disabled');
 })
@@ -41,6 +47,8 @@ document.getElementById('case-minus').addEventListener('click', function () {
     const caseUpdatedNumber = productAmount(false, 'case-number');
 
     calculateProductPrice('case-total', casePrice, caseUpdatedNumber);
+
+    calculateProductTotal();
 
     if (caseUpdatedNumber == 0) {
         this.setAttribute('disabled', true);
